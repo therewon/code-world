@@ -46,7 +46,7 @@ export function Header() {
           <select
             defaultValue="AZ"
             aria-label="Dil seçimi"
-            className="cursor-pointer bg-transparent py-2 text-sm font-medium text-white outline-none transition *:text-black"
+            className="cursor-pointer bg-transparent py-2 text-sm font-medium text-white outline-none transition *:text-black max-sm:hidden"
           >
             <option value="AZ">AZ</option>
             <option value="RU">RU</option>

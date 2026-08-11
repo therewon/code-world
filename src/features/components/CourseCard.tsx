@@ -7,8 +7,8 @@ interface CourseCardProps {
 
 export const CourseCard = ({ course }: CourseCardProps) => {
   return (
-    <article className="min-w-[320px] overflow-hidden rounded-[16px] bg-[#F4F5F7] md:min-w-[375px]">
-      <div className="flex h-[240px] items-center justify-center bg-[#EEF0F4]">
+    <article className="min-w-full overflow-hidden rounded-2xl bg-[#F4F5F7] md:min-w-[411px]">
+      <div className="flex h-60 items-center justify-center bg-[#EEF0F4]">
         <div className="text-6xl font-bold">
           {course.icon}
         </div>

@@ -20,7 +20,7 @@
 
 @utility site-container {
   margin-inline: auto;
-  width: min(1180px, calc(100% - 40px));
+  width: min(1280px, calc(100% - 40px));
 
   @media (width <= 680px) {
     width: min(1180px, calc(100% - 28px));
@@ -36,7 +36,7 @@
 }
 
 @utility section-spacing {
-  @apply py-[110px] max-[680px]:py-[75px];
+  @apply py-10 max-md:py-8;
 }
 
 @utility card-grid {
@@ -44,7 +44,7 @@
 }
 
 @utility form-input {
-  @apply h-[52px] w-full rounded-xl border border-[#dfe3e8] bg-[#f7f8fa] px-[15px] text-[#111] outline-none transition focus:border-[#0869f7] focus:shadow-[0_0_0_4px_rgba(8,105,247,.1)];
+  @apply h-13 w-full rounded-xl border border-[#dfe3e8] bg-[#f7f8fa] px-[15px] text-[#111] outline-none transition focus:border-[#0869f7] focus:shadow-[0_0_0_4px_rgba(8,105,247,.1)];
 }
 
 @utility role-button {
@@ -56,5 +56,5 @@
 }
 
 @utility footer-link {
-  @apply text-[13px] text-[#aebddb] transition hover:text-white;
+  @apply  text-[#aebddb] transition hover:text-white;
 }

@@ -1,32 +1,63 @@
+import { BiLogoInstagramAlt } from "react-icons/bi";
+import { FaFacebook, FaLinkedinIn, FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
+import { PiMailboxFill } from "react-icons/pi";
 import { Link } from "react-router-dom";
+
+const gradientColor = "bg-[linear-gradient(139.36deg,#070A12_-16.95%,#071E47_9.43%,#0B2C8D_47.72%,#015CE9_95.19%)]"
 
 export function Footer() {
   return (
-    <footer className="bg-[#071b47] pb-5 pt-[72px] text-white">
-      <div className="site-container grid grid-cols-[1.5fr_.7fr_1fr] gap-[70px] max-[680px]:grid-cols-1 max-[680px]:gap-[35px]">
+    <footer className={`${gradientColor} pb-10 pt-18 text-white`}>
+      <div className="site-container md:flex justify-between max-[680px]:gap-8.75">
         <div>
-          <Link to="/" className="mb-[18px] inline-flex items-center gap-2.5 whitespace-nowrap text-sm font-black tracking-[.05em]">
-            <span className="grid size-9 place-items-center rounded-[11px] bg-[linear-gradient(135deg,#0b77ff,#65aaff)] text-xs tracking-[-.04em] text-white shadow-[0_8px_22px_rgba(0,91,255,.34)]">CW</span>
+          <Link to="/" className="mb-4.5 inline-flex items-center gap-2.5 whitespace-nowrap text-xl font-black tracking-[.05em]">
             <span>CODE WORLD</span>
           </Link>
-          <p className="max-w-[330px] leading-[1.65] text-[#9eb0cf]">Texnologiya və dizayn sahəsində gələcəyini bizimlə qur.</p>
+          <p className=" text-[#D7D7D7] flex items-center gap-2 mb-4"><FaPhoneAlt color="white" size={18} /> +994 (77) 328 29 36</p>
+          <p className=" text-[#D7D7D7] flex items-center gap-2 mb-4"><PiMailboxFill color="white" size={18} /> codeworld.az@gmail.com</p>
+          <p className="max-w-62.5 text-[#D7D7D7] flex gap-2 mb-8"><FaLocationDot color="white" size={20} /> Bakı şəhəri, Nizami rayonu, Elşən Süleymanov küçəsi 122</p>
+          <div className="flex gap-3 mb-9">
+            <div className="bg-[#FFFFFF14] rounded-2xl p-[13px]">
+              <BiLogoInstagramAlt size={20} />
+            </div>
+            <div className="bg-[#FFFFFF14] rounded-2xl p-[13px]">
+              <FaFacebook size={20} />
+            </div>
+            <div className="bg-[#FFFFFF14] rounded-2xl p-[13px]">
+              <FaLinkedinIn size={20} />
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col items-start gap-[11px]">
-          <h3 className="mb-2.5 text-sm font-bold">Sürətli keçidlər</h3>
-          <Link className="footer-link" to="/kurslar">Kurslar</Link>
-          <Link className="footer-link" to="/tecrube">Təcrübə</Link>
-          <Link className="footer-link" to="/telimciler">Təlimçilər</Link>
+        <div className="sm:flex gap-20.75">
+          <div className="flex flex-col items-start gap-2 *:whitespace-nowrap mb-8">
+            <h3 className="mb-4 text-lg font-bold">Sürətli keçidlər</h3>
+            <Link className="footer-link" to="/kurslar">Təcrübə</Link>
+            <Link className="footer-link" to="/tecrube">Təlimçilər</Link>
+            <Link className="footer-link" to="/telimciler">Məzunlar</Link>
+          </div>
+          <div className="flex flex-col items-start gap-2 mb-8">
+            <h3 className="mb-4 text-lg font-bold">Proqramlaşdırma</h3>
+            <a className="footer-link">C#</a>
+            <a className="footer-link">SQL</a>
+            <span className="footer-link">Java</span>
+            <span className="footer-link">Frontend</span>
+            <span className="footer-link">Android</span>
+            <span className="footer-link">Full Stack</span>
+          </div>
+          <div>
+            <div className="flex flex-col items-start gap-2 *:whitespace-nowrap sm:mb-6.5 mb-8">
+              <h3 className="mb-3 text-lg font-bold">Dizayn</h3>
+              <Link className="footer-link" to="/kurslar">UX/UI</Link>
+              <Link className="footer-link" to="/tecrube">Qrafik dizayn</Link>
+            </div>
+            <div className="flex flex-col items-start gap-2 *:whitespace-nowrap">
+              <h3 className="mb-3 text-lg font-bold">Data & QA</h3>
+              <Link className="footer-link" to="/kurslar">QA</Link>
+              <Link className="footer-link" to="/tecrube">Data Analitika</Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col items-start gap-[11px]">
-          <h3 className="mb-2.5 text-sm font-bold">Əlaqə</h3>
-          <a className="footer-link" href="tel:+994773282936">+994 (77) 328 29 36</a>
-          <a className="footer-link" href="mailto:codeworld.az@gmail.com">codeworld.az@gmail.com</a>
-          <span className="text-[13px] text-[#aebddb]">Bakı şəhəri, Nizami rayonu</span>
-        </div>
-      </div>
-      <div className="site-container mt-[55px] flex justify-between border-t border-white/10 pt-5 text-[11px] text-[#8193b4] max-[680px]:flex-col max-[680px]:gap-2.5">
-        <span>© {new Date().getFullYear()} Code World</span>
-        <span>Bilikdən karyeraya.</span>
       </div>
     </footer>
   );

@@ -1,28 +1,13 @@
 import { useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-
-import { CourseCard } from "../components/CourseCard";
 import {
-  categories,
-  courses,
-  type CategoryFilter,
+  graduates
 } from "../../data/siteData";
+import { GraduateCard } from "../components/GraduateCard";
 
-const CoursesSection = () => {
-  const [activeCategory, setActiveCategory] =
-    useState<CategoryFilter>("Hamısı");
+const GraduateSection = () => {
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
-
-  const filteredCourses = useMemo(() => {
-    if (activeCategory === "Hamısı") {
-      return courses;
-    }
-
-    return courses.filter(
-      (course) => course.category === activeCategory
-    );
-  }, [activeCategory]);
 
   const handleScroll = (direction: "prev" | "next") => {
     sliderRef.current?.scrollBy({
@@ -35,29 +20,10 @@ const CoursesSection = () => {
     <section className="py-4">
       <div className="w-full">
         <div className="mb-6 flex items-center justify-between gap-5 ">
-          {/* Categories */}
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => {
-              const isActive = category === activeCategory;
-
-              return (
-                <button
-                  key={category}
-                  type="button"
-                  onClick={() => setActiveCategory(category)}
-                  className={`rounded-full px-5 py-3 text-sm font-medium transition-all duration-300 ${isActive
-                      ? "bg-[#015CE9] text-white"
-                      : "bg-[#FAFAFA] text-[#747877] hover:bg-white"
-                    }`}
-                >
-                  {category}
-                </button>
-              );
-            })}
-          </div>
+          
 
           {/* Navigation */}
-          <div className="hidden shrink-0 gap-6 md:flex">
+          <div className="hidden shrink-0 gap-6 md:flex absolute right-0 top-13">
             <button
               type="button"
               onClick={() => handleScroll("prev")}
@@ -91,11 +57,11 @@ const CoursesSection = () => {
           ref={sliderRef}
           className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
-          {filteredCourses.length > 0 ? (
-            filteredCourses.map((course) => (
-              <CourseCard
-                key={course.title}
-                course={course}
+          {graduates.length > 0 ? (
+            graduates.map((graduate) => (
+              <GraduateCard
+                key={graduate.id}
+                graduate={graduate}
               />
             ))
           ) : (
@@ -111,4 +77,4 @@ const CoursesSection = () => {
   );
 };
 
-export default CoursesSection
+export default GraduateSection
