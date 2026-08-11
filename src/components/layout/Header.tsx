@@ -9,9 +9,6 @@ const navigation = [
   { to: "/mezunlar", label: "Məzunlar" },
 ];
 
-const navLinkClass =
-  "rounded-full px-[15px] py-2.5 text-center text-[13px] font-semibold text-[#c7cedd] transition duration-200 hover:bg-white/10 hover:text-white";
-
 export function Header() {
   const { user, logout } = useAuth();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,7 +17,7 @@ export function Header() {
 
   return (
     <header className="absolute inset-x-0 top-0 z-20 py-[22px] text-white max-[680px]:pt-[15px]">
-      <div className="mx-auto flex w-[min(1180px,calc(100%-40px))] items-center justify-between gap-6 max-[680px]:w-[min(1180px,calc(100%-28px))]">
+      <div className="site-container flex items-center justify-between gap-6">
         <Link
           to="/"
           className="inline-flex items-center gap-2.5 whitespace-nowrap text-sm font-black tracking-[.05em]"
@@ -38,7 +35,7 @@ export function Header() {
               key={item.to}
               to={item.to}
               onClick={() => setMenuOpen(false)}
-              className={({ isActive }) => `${navLinkClass} ${isActive ? "bg-white/10 text-white" : ""}`}
+              className={({ isActive }) => `nav-link ${isActive ? "bg-white/10 text-white" : ""}`}
             >
               {item.label}
             </NavLink>

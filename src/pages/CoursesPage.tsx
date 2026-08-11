@@ -14,10 +14,10 @@ export function CoursesPage() {
   return (
     <>
       <PageHero eyebrow="Tədris proqramları" title="Bacarıqlarını karyeraya çevir" text="Başlanğıc səviyyədən işə hazır portfolioya qədər praktik və mentor dəstəkli proqramlar.">
-        <Link to="/qeydiyyat" className="inline-flex min-h-[50px] items-center justify-center gap-2.5 rounded-full bg-[#0869f7] px-[22px] text-sm font-extrabold text-white shadow-[0_13px_30px_rgba(0,94,255,.25)] transition duration-200 hover:-translate-y-0.5 hover:shadow-[0_16px_35px_rgba(0,94,255,.34)]">Proqrama qoşul</Link>
+        <Link to="/qeydiyyat" className="site-button bg-[#0869f7] text-white shadow-[0_13px_30px_rgba(0,94,255,.25)] hover:shadow-[0_16px_35px_rgba(0,94,255,.34)]">Proqrama qoşul</Link>
       </PageHero>
-      <section className="py-[110px] max-[680px]:py-[75px]">
-        <div className="mx-auto w-[min(1180px,calc(100%-40px))] max-[680px]:w-[min(1180px,calc(100%-28px))]">
+      <section className="section-spacing">
+        <div className="site-container">
           <div className="mb-8 flex flex-wrap gap-[9px]" aria-label="Kurs kateqoriyaları">
             {categories.map((category) => (
               <button
@@ -30,7 +30,7 @@ export function CoursesPage() {
               </button>
             ))}
           </div>
-          <div className="grid grid-cols-3 gap-6 max-[980px]:grid-cols-2 max-[680px]:grid-cols-1">
+          <div className="card-grid gap-6">
             {visibleCourses.map((course) => <CourseCard key={course.title} course={course} />)}
           </div>
         </div>
