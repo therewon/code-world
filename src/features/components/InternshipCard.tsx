@@ -7,7 +7,7 @@ interface InternshipCardProps {
 
 const InternshipCard = ({ intern }: InternshipCardProps) => {
     return (
-        <article className="relative h-[360px] min-w-[411px] overflow-hidden rounded-2xl bg-[#F2F3F5] p-8">
+        <article className="relative h-[360px] sm:min-w-[411px] overflow-hidden rounded-2xl bg-[#F2F3F5] p-8 max-sm:mb-3">
             {/* Content */}
             <div className="relative z-10">
                 <h3 className="mb-4 text-[24px] font-semibold text-black">

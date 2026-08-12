@@ -46,7 +46,7 @@ export function Header() {
           <select
             defaultValue="AZ"
             aria-label="Dil seçimi"
-            className="cursor-pointer bg-transparent py-2 text-sm font-medium text-white outline-none transition *:text-black max-sm:hidden"
+            className="cursor-pointer bg-transparent py-2 text-sm font-medium text-white outline-none transition *:text-black max-sm:hidden hover:text-white/80"
           >
             <option value="AZ">AZ</option>
             <option value="RU">RU</option>
@@ -57,7 +57,7 @@ export function Header() {
             <div className="relative">
               <button
                 type="button"
-                className="flex min-h-[42px] cursor-pointer items-center justify-center gap-2 rounded-full bg-[#0869f7] px-[18px] text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(5,98,242,.25)] max-[680px]:min-h-10 max-[680px]:px-3.5"
+                className="flex min-h-[42px] cursor-pointer items-center justify-center gap-2 rounded-full hover:text-[#0869f7] hover:bg-white hover:border-[#0869f7] bg-[#0869f7] px-[18px] text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(5,98,242,.25)] max-[680px]:min-h-10 max-[680px]:px-3.5"
                 onClick={() => setAccountOpen((current) => !current)}
                 aria-expanded={accountOpen}
               >
@@ -83,15 +83,15 @@ export function Header() {
           ) : (
             <Link
               to="/daxil-ol"
-              className="flex min-h-[42px] items-center justify-center rounded-full bg-[#0869f7] px-[18px] text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(5,98,242,.25)] max-[680px]:min-h-10 max-[680px]:px-3.5"
+              className="flex min-h-[42px] items-center justify-center rounded-full bg-[#0869f7] hover:text-[#0869f7] hover:bg-white hover:border-[#0869f7] hover:border px-[18px] text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(5,98,242,.25)] max-[680px]:min-h-10 max-[680px]:px-3.5"
             >
-              Qeydiyyat
+              Daxil ol
             </Link>
           )}
 
           <button
             type="button"
-            className="hidden size-[42px] cursor-pointer rounded-full border-0 bg-white max-[980px]:block"
+            className="hidden size-[42px] cursor-pointer rounded-full border-0 bg-white max-[980px]:block "
             aria-label="Menyunu aç"
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((current) => !current)}

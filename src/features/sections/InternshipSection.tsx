@@ -56,7 +56,7 @@ const InternshipSection = () => {
         {/* Cards */}
         <div
           ref={sliderRef}
-          className="flex gap-6 overflow-x-auto scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden"
+          className="sm:flex gap-6 sm:overflow-x-auto scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden"
         >
           {internshipSteps.length > 0 ? (
             internshipSteps.map((intern) => (

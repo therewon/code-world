@@ -1,55 +1,197 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import type { UserRole } from "../auth/auth.types";
-import { useAuth } from "../auth/useAuth";
+import { ArrowLeft, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
+import { courses } from "../data/siteData";
+import RegisterImage from "../assets/register-image.png"
+import RegisterImage1 from "../assets/register-image-1.png"
+import RegisterImage2 from "../assets/register-image-2.png"
+
+type RegistrationType = "student" | "intern";
+type TeachingFormat = "in-person" | "online";
+
+const gradientBackground = "bg-[linear-gradient(152.8deg,_#070A12_1.83%,_#071E47_33.23%,_#0B2C8D_66.43%,_#015CE9_91.55%)]"
+const fieldClassName =
+  " w-full rounded-xl border border-transparent bg-[#f1f2f4] p-4 text-[14px] text-[#111827]! outline-none transition placeholder:text-[#7c8799] focus:border-[#0869f7] focus:bg-white focus:shadow-[0_0_0_4px_rgba(8,105,247,.1)]";
 
 export function RegisterPage() {
-  const { register } = useAuth();
-  const navigate = useNavigate();
-  const [role, setRole] = useState<UserRole>("student");
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [registrationType, setRegistrationType] = useState<RegistrationType>("student");
+  const [teachingFormat, setTeachingFormat] = useState<TeachingFormat>("in-person");
+  const [submitted, setSubmitted] = useState(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    setError("");
-    setLoading(true);
-    try {
-      await register({ name: String(data.get("name")), email: String(data.get("email")), password: String(data.get("password")), role });
-      navigate("/", { replace: true });
-    } catch (reason) {
-      setError(reason instanceof Error ? reason.message : "Qeydiyyatı tamamlamaq mümkün olmadı.");
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
   }
 
   return (
-    <section className="relative flex min-h-[850px] items-center overflow-hidden bg-[radial-gradient(circle_at_77%_20%,#0a55c7_0,transparent_30%),linear-gradient(130deg,#06183f_0%,#052766_50%,#063582_100%)] pb-[90px] pt-[145px] text-white max-[680px]:min-h-0 max-[680px]:pb-[70px] max-[680px]:pt-[120px]">
-      <div className="pointer-events-none absolute right-[3%] top-20 size-[330px] rounded-full bg-[radial-gradient(circle_at_30%_30%,#71c6ff,#075acb_52%,#031438_78%)] opacity-65" />
-      <div className="pointer-events-none absolute -left-10 bottom-[60px] size-[150px] rounded-full border border-white/20" />
-      <div className="site-container relative z-[2] grid grid-cols-[1fr_500px] items-center gap-[90px] max-[980px]:grid-cols-1 max-[980px]:gap-[45px]">
-        <div className="max-[980px]:text-center">
-          <span className="section-eyebrow text-[#8fc1ff]">Code World icması</span>
-          <h1 className="mb-[22px] mt-4 text-[clamp(48px,5vw,72px)] font-bold leading-[.98] tracking-[-.055em] max-[680px]:text-[43px]">Gələcəyinə gedən yolu bu gün başlat.</h1>
-          <p className="max-w-[620px] text-[17px] leading-[1.65] text-[#c8d4ed] max-[980px]:mx-auto">Qeydiyyatdan sonra adın “Daxil ol” düyməsinin yerində görünəcək.</p>
-          <div className="mt-7 flex flex-wrap gap-[18px] text-[13px] font-bold text-[#cae0ff] max-[980px]:justify-center"><span>✓ Praktiki tədris</span><span>✓ Real layihələr</span><span>✓ Mentor dəstəyi</span></div>
-        </div>
-        <form className="rounded-[25px] bg-white p-[38px] text-[#0d1119] shadow-[0_35px_85px_rgba(0,0,0,.3)] max-[980px]:mx-auto max-[980px]:w-[min(100%,520px)] max-[680px]:px-5 max-[680px]:py-7" onSubmit={handleSubmit}>
-          <span className="text-[11px] font-black uppercase tracking-[.14em] text-[#0869f7]">Yeni hesab</span>
-          <h2 className="mb-[25px] mt-2 text-[34px] font-bold tracking-[-.04em]">Qeydiyyatdan keç</h2>
-          <div className="mb-[22px] grid grid-cols-2 gap-[7px] rounded-full bg-[#f0f2f5] p-[5px]" aria-label="Qeydiyyat növü">
-            <button type="button" className={`role-button ${role === "student" ? "bg-[#0869f7] text-white" : "bg-transparent text-[#616875]"}`} onClick={() => setRole("student")}>Tələbə</button>
-            <button type="button" className={`role-button ${role === "intern" ? "bg-[#0869f7] text-white" : "bg-transparent text-[#616875]"}`} onClick={() => setRole("intern")}>Təcrübəçi</button>
+    <section className={`${gradientBackground} relative grid overflow-hidden lg:grid-cols-2`}>
+      <Link
+        className="absolute left-5 top-5 z-30 inline-flex items-center gap-2 rounded-full bg-white/95 px-4 py-3 text-sm font-bold text-[#111827] shadow-[0_8px_28px_rgba(0,0,0,.14)] backdrop-blur transition hover:-translate-x-0.5 hover:bg-white focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0869f7]/25 lg:left-8 lg:top-8 lg:bg-white/10 lg:text-white lg:ring-1 lg:ring-white/25 lg:hover:bg-white/20"
+        to="/"
+        aria-label="Ana səhifəyə qayıt"
+      >
+        <ArrowLeft aria-hidden="true" size={19} strokeWidth={2.3} />
+        <span>Geri</span>
+      </Link>
+        <img
+          className="absolute w-25 top-1/4 right-3/5 rotate-330 object-contain object-bottom scale-150"
+          src={RegisterImage1}
+          alt=""
+        />
+         <img
+          className="absolute w-25 top-1/4 left-1/10 rotate-330 object-contain object-bottom scale-150"
+          src={RegisterImage2}
+          alt=""
+        />
+      <div className="hidden lg:block h-full" aria-hidden="true">
+        <img
+          className="w-full h-161 object-contain object-bottom scale-150"
+          src={RegisterImage}
+          alt=""
+        />
+      </div>
+
+      <div className="relative z-10 flex min-h-screen items-center justify-center rounded-t-[28px] bg-white px-5 py-20 sm:px-10 lg:rounded-l-[28px] lg:rounded-tr-none lg:px-[clamp(44px,6vw,108px)] lg:py-10">
+        <form className="w-full max-w-[565px] text-[#10131b]" onSubmit={handleSubmit}>
+          <div className="mb-8 text-center">
+            <h1 className="text-[clamp(40px,4vw,46px)] font-bold leading-none tracking-[-.045em]">Qeydiyyat</h1>
+            <p className="mx-auto mt-4 max-w-[485px] text-[15px] leading-6 text-[#5f6065] sm:text-lg">
+              Aşağıdakı məlumatları dolduraraq kurs və ya təcrübə proqramına müraciət edin.
+            </p>
           </div>
-          <label className="mb-[17px] grid gap-2 text-xs font-extrabold text-[#424956]">Ad və soyad<input className="form-input" name="name" type="text" placeholder="Ad Soyad" minLength={2} required /></label>
-          <label className="mb-[17px] grid gap-2 text-xs font-extrabold text-[#424956]">E-poçt<input className="form-input" name="email" type="email" placeholder="ad@example.com" required /></label>
-          <label className="mb-[17px] grid gap-2 text-xs font-extrabold text-[#424956]">Şifrə<input className="form-input" name="password" type="password" placeholder="Minimum 6 simvol" minLength={6} required /></label>
-          {error && <p className="rounded-[10px] bg-[#fff0ef] px-[13px] py-[11px] text-xs text-[#b42318]" role="alert">{error}</p>}
-          <button type="submit" className="site-button w-full cursor-pointer bg-[#0869f7] text-white shadow-[0_13px_30px_rgba(0,94,255,.25)] hover:shadow-[0_16px_35px_rgba(0,94,255,.34)] disabled:cursor-wait disabled:opacity-65 disabled:hover:translate-y-0" disabled={loading}>{loading ? "Hesab yaradılır..." : "Qeydiyyatı tamamla"}</button>
-          <p className="mb-0 mt-[18px] text-center text-[13px] text-[#6e7580]">Artıq hesabın var? <Link className="font-extrabold text-[#0869f7]" to="/daxil-ol">Daxil ol</Link></p>
+
+          <div className="mb-6 flex r gap-2" aria-label="Qeydiyyat növü">
+            <button
+              type="button"
+              className={`min-w-[104px] rounded-full px-5 py-3 text-sm font-semibold transition ${registrationType === "student"
+                  ? "bg-[#0869f7] text-white shadow-[0_8px_20px_rgba(8,105,247,.2)]"
+                  : "bg-[#f1f2f4] text-[#687386] hover:bg-[#e8eaee]"
+                }`}
+              aria-pressed={registrationType === "student"}
+              onClick={() => setRegistrationType("student")}
+            >
+              Tələbə
+            </button>
+            <button
+              type="button"
+              className={`min-w-[104px] rounded-full px-5 py-3 text-sm font-semibold transition ${registrationType === "intern"
+                  ? "bg-[#0869f7] text-white shadow-[0_8px_20px_rgba(8,105,247,.2)]"
+                  : "bg-[#f1f2f4] text-[#687386] hover:bg-[#e8eaee]"
+                }`}
+              aria-pressed={registrationType === "intern"}
+              onClick={() => setRegistrationType("intern")}
+            >
+              Təcrübəçi
+            </button>
+          </div>
+
+          <input type="hidden" name="registrationType" value={registrationType} />
+          <input type="hidden" name="teachingFormat" value={teachingFormat} />
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="grid gap-2 text-sm font-semibold text-[#111827]">
+              Ad və Soyad*
+              <input
+                className={fieldClassName}
+                name="fullName"
+                type="text"
+                placeholder="Aysel Əlizadə"
+                autoComplete="name"
+                minLength={2}
+                required
+              />
+            </label>
+
+            <label className="grid gap-2 text-[13px] font-semibold text-[#111827]">
+              Telefon nömrəniz*
+              <input
+                className={fieldClassName}
+                name="phone"
+                type="tel"
+                placeholder="+994 XX XXX XX XX"
+                autoComplete="tel"
+                inputMode="tel"
+                required
+              />
+            </label>
+          </div>
+
+          <label className="mt-4 grid gap-2 text-[13px] font-semibold text-[#111827]">
+            Maraqlandığınız kurs*
+            <span className="relative">
+              <select
+                className={`${fieldClassName} cursor-pointer appearance-none `}
+                name="course"
+                defaultValue=""
+                required
+              >
+                <option value="" disabled className="">
+                  Kurs seçin
+                </option>
+                {courses.map((course) => (
+                  <option key={course.title} value={course.title}>
+                    {course.title}
+                  </option>
+                ))}
+              </select>
+              <ChevronDown
+                className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#8993a2]"
+                aria-hidden="true"
+                size={18}
+              />
+            </span>
+          </label>
+
+          <fieldset className="mt-4">
+            <legend className="mb-2 text-[13px] font-semibold text-[#111827]">Tədris formatı</legend>
+            <div className="flex gap-2">
+              <button
+                type="button"
+                className={`rounded-xl px-5 py-3.5 text-sm transition ${teachingFormat === "in-person"
+                    ? "bg-[#e5efff] font-semibold text-[#0869f7] ring-1 ring-[#0869f7]/20"
+                    : "bg-[#f1f2f4] text-[#273043] hover:bg-[#e8eaee]"
+                  }`}
+                aria-pressed={teachingFormat === "in-person"}
+                onClick={() => setTeachingFormat("in-person")}
+              >
+                Əyani
+              </button>
+              <button
+                type="button"
+                className={`rounded-xl px-5 py-3.5 text-sm transition ${teachingFormat === "online"
+                    ? "bg-[#e5efff] font-semibold text-[#0869f7] ring-1 ring-[#0869f7]/20"
+                    : "bg-[#f1f2f4] text-[#273043] hover:bg-[#e8eaee]"
+                  }`}
+                aria-pressed={teachingFormat === "online"}
+                onClick={() => setTeachingFormat("online")}
+              >
+                Onlayn
+              </button>
+            </div>
+          </fieldset>
+
+          <label className="mt-4 grid gap-2 text-[13px] font-semibold text-[#111827]">
+            Qeyd
+            <textarea
+              className={`${fieldClassName} min-h-[104px] resize-y py-4 sm:min-h-[112px]`}
+              name="note"
+              placeholder="Əlavə qeydlər, suallar..."
+            />
+          </label>
+
+          {submitted && (
+            <p className="mt-4 rounded-xl bg-[#ecfdf3] px-4 py-3 text-sm font-medium text-[#027a48]" role="status">
+              Müraciətiniz qəbul edildi. Tezliklə sizinlə əlaqə saxlayacağıq.
+            </p>
+          )}
+
+          <button
+            type="submit"
+            className="mt-6 inline-flex min-h-[60px] w-full cursor-pointer items-center justify-center rounded-full bg-[#0869f7] px-6 text-[16px] font-bold text-white shadow-[0_14px_30px_rgba(0,94,255,.22)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#0060eb] hover:shadow-[0_17px_36px_rgba(0,94,255,.3)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0869f7]/25"
+          >
+            Qeydiyyatdan keç
+          </button>
         </form>
       </div>
     </section>

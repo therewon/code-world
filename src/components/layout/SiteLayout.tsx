@@ -5,6 +5,7 @@ import { Header } from "./Header";
 
 export function SiteLayout() {
   const { pathname } = useLocation();
+  const isRegistrationPage = pathname === "/qeydiyyat";
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -12,9 +13,9 @@ export function SiteLayout() {
 
   return (
     <div className="min-h-screen min-w-80 overflow-hidden bg-white font-sans text-[#10131b] antialiased">
-      <Header />
+      {!isRegistrationPage && <Header />}
       <main><Outlet /></main>
-      <Footer />
+      {!isRegistrationPage && <Footer />}
     </div>
   );
 }
