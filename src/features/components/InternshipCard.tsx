@@ -1,4 +1,3 @@
-import React from 'react'
 import type { InternshipStep } from '../../data/siteData'
 
 interface InternshipCardProps {
@@ -7,14 +6,14 @@ interface InternshipCardProps {
 
 const InternshipCard = ({ intern }: InternshipCardProps) => {
     return (
-        <article className="relative h-[360px] sm:min-w-[411px] overflow-hidden rounded-2xl bg-[#F2F3F5] p-8 max-sm:mb-3">
+        <article className="relative h-90 sm:min-w-102.75 overflow-hidden rounded-2xl bg-[#F2F3F5] p-8 max-sm:mb-3">
             {/* Content */}
             <div className="relative z-10">
                 <h3 className="mb-4 text-[24px] font-semibold text-black">
                     {intern.title}
                 </h3>
 
-                <p className="max-w-[340px] text-[16px] font-medium leading-6 text-[#64748B]">
+                <p className="max-w-85 text-[16px] font-medium leading-6 text-[#64748B]">
                     {intern.description}
                 </p>
             </div>

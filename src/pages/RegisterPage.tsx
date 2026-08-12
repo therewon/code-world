@@ -53,10 +53,10 @@ export function RegisterPage() {
       </div>
 
       <div className="relative z-10 flex min-h-screen items-center justify-center rounded-t-[28px] bg-white px-5 py-20 sm:px-10 lg:rounded-l-[28px] lg:rounded-tr-none lg:px-[clamp(44px,6vw,108px)] lg:py-10">
-        <form className="w-full max-w-[565px] text-[#10131b]" onSubmit={handleSubmit}>
+        <form className="w-full max-w-141.25 text-[#10131b]" onSubmit={handleSubmit}>
           <div className="mb-8 text-center">
             <h1 className="text-[clamp(40px,4vw,46px)] font-bold leading-none tracking-[-.045em]">Qeydiyyat</h1>
-            <p className="mx-auto mt-4 max-w-[485px] text-[15px] leading-6 text-[#5f6065] sm:text-lg">
+            <p className="mx-auto mt-4 max-w-121.25 text-[15px] leading-6 text-[#5f6065] sm:text-lg">
               Aşağıdakı məlumatları dolduraraq kurs və ya təcrübə proqramına müraciət edin.
             </p>
           </div>
@@ -64,7 +64,7 @@ export function RegisterPage() {
           <div className="mb-6 flex r gap-2" aria-label="Qeydiyyat növü">
             <button
               type="button"
-              className={`min-w-[104px] rounded-full px-5 py-3 text-sm font-semibold transition ${registrationType === "student"
+              className={`min-w-26 rounded-full px-5 py-3 text-sm font-semibold transition ${registrationType === "student"
                   ? "bg-[#0869f7] text-white shadow-[0_8px_20px_rgba(8,105,247,.2)]"
                   : "bg-[#f1f2f4] text-[#687386] hover:bg-[#e8eaee]"
                 }`}
@@ -75,7 +75,7 @@ export function RegisterPage() {
             </button>
             <button
               type="button"
-              className={`min-w-[104px] rounded-full px-5 py-3 text-sm font-semibold transition ${registrationType === "intern"
+              className={`min-w-26 rounded-full px-5 py-3 text-sm font-semibold transition ${registrationType === "intern"
                   ? "bg-[#0869f7] text-white shadow-[0_8px_20px_rgba(8,105,247,.2)]"
                   : "bg-[#f1f2f4] text-[#687386] hover:bg-[#e8eaee]"
                 }`}
@@ -174,7 +174,7 @@ export function RegisterPage() {
           <label className="mt-4 grid gap-2 text-[13px] font-semibold text-[#111827]">
             Qeyd
             <textarea
-              className={`${fieldClassName} min-h-[104px] resize-y py-4 sm:min-h-[112px]`}
+              className={`${fieldClassName} min-h-26 resize-y py-4 sm:min-h-28`}
               name="note"
               placeholder="Əlavə qeydlər, suallar..."
             />
@@ -188,7 +188,7 @@ export function RegisterPage() {
 
           <button
             type="submit"
-            className="mt-6 inline-flex min-h-[60px] w-full cursor-pointer items-center justify-center rounded-full bg-[#0869f7] px-6 text-[16px] font-bold text-white shadow-[0_14px_30px_rgba(0,94,255,.22)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#0060eb] hover:shadow-[0_17px_36px_rgba(0,94,255,.3)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0869f7]/25"
+            className="mt-6 inline-flex min-h-15 w-full cursor-pointer items-center justify-center rounded-full bg-[#0869f7] px-6 text-[16px] font-bold text-white shadow-[0_14px_30px_rgba(0,94,255,.22)] transition duration-200 hover:-translate-y-0.5 hover:bg-[#0060eb] hover:shadow-[0_17px_36px_rgba(0,94,255,.3)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#0869f7]/25"
           >
             Qeydiyyatdan keç
           </button>

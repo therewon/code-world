@@ -1,9 +1,8 @@
-import { useMemo, useRef, useState } from "react";
+import {  useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   internshipSteps
 } from "../../data/siteData";
-import { GraduateCard } from "../components/GraduateCard";
 import InternshipCard from "../components/InternshipCard";
 
 const InternshipSection = () => {
