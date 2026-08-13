@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import {
   graduates

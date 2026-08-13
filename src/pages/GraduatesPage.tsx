@@ -1,16 +1,21 @@
+import FooterForm from "../components/FooterForm";
 import { PageHero } from "../components/PageHero";
-import { PersonCard } from "../components/PersonCard";
-import { graduates } from "../data/siteData";
+import SectionHeading from "../components/SectionHeading";
+import GraduateSection from "../features/sections/GraduateSection";
 
 export function GraduatesPage() {
   return (
     <>
-      <PageHero eyebrow="Məzunlarımız" title="Öyrən, yarat, karyerana başla" text="Code World məzunlarının texnologiya və dizayn dünyasındakı uğur hekayələri." />
-      <section className="section-spacing">
-        <div className="site-container card-grid">
-          {[...graduates, ...graduates].map((person, index) => <PersonCard key={`${person.name}-${index}`} person={person} graduate />)}
+      <PageHero eyebrow="Məzunlarımız" title="Məzunlarımız" text="Tədris proqramımızı uğurla tamamlayan və seçdikləri sahələrdə peşəkar inkişafını davam etdirən məzunlarımız." />
+      <section className="section-spacing rounded-t-3xl -translate-y-20 bg-white z-9999!">
+        <div className="site-container relative">
+          <SectionHeading title="Məzunlarımız bu gün haradadır?" />
+          <GraduateSection />
         </div>
       </section>
+
+
+      <FooterForm />
     </>
   );
 }

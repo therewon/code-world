@@ -80,6 +80,46 @@ export interface Education {
   value: string;
 }
 
+export interface PortfolioItem {
+  id: number;
+  name: string;
+  position: string;
+  image: string;
+}
+
+export const portfolioData: PortfolioItem[] = [
+  {
+    id: 1,
+    name: "Günel Hüseynova",
+    position: "UX/UI dizayner",
+    image: "/images/gunel-huseynova.png",
+  },
+  {
+    id: 2,
+    name: "Məhəmməd Məmmədzadə",
+    position: "Qrafik dizayner",
+    image: "/images/mehemmed-memmedzade.png",
+  },
+  {
+    id: 3,
+    name: "Nərmin Bədəlova",
+    position: "UX/UI dizayner",
+    image: "/images/nermin-bedelova.png",
+  },
+  {
+    id: 4,
+    name: "Əli İmanov",
+    position: "UX/UI dizayner",
+    image: "/images/eli-imanov.png",
+  },
+  {
+    id: 5,
+    name: "Nərmin Əlizadə",
+    position: "Qrafik dizayner",
+    image: "/images/nermin-elizade.png",
+  },
+];
+
 export const educations: Education[] = [
   {
     id: 1,
