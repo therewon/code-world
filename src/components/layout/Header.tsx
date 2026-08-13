@@ -146,7 +146,7 @@ export function Header() {
             </div>
           ) : (
             <Link
-              to="/daxil-ol"
+              to="/qeydiyyat"
               className="flex min-h-10.5 items-center justify-center rounded-full bg-[#0869f7] px-4.5 text-[13px] font-extrabold text-white shadow-[0_10px_25px_rgba(5,98,242,.25)] hover:bg-white hover:text-[#0869f7] max-[680px]:min-h-10 max-[680px]:px-3.5"
             >
               {t("nav.login")}
