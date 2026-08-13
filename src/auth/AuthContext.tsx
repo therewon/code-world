@@ -45,7 +45,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     const accounts = readJson<StoredAccount[]>(ACCOUNTS_KEY, []);
 
     if (accounts.some((account) => account.email === email)) {
-      throw new Error("Bu e-poçt ünvanı ilə artıq hesab yaradılıb.");
+      throw new Error("auth.duplicateEmail");
     }
 
     const nextUser: AuthUser = {
@@ -72,7 +72,7 @@ export function AuthProvider({ children }: PropsWithChildren) {
     );
 
     if (!account) {
-      throw new Error("E-poçt və ya şifrə yanlışdır.");
+      throw new Error("auth.invalidCredentials");
     }
 
     const nextUser: AuthUser = {

@@ -1,5 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import { MentorCard } from "../components/MentorCard"
 import {
     categories,
@@ -8,13 +9,14 @@ import {
 } from "../../data/siteData";
 
 const MentorSection = () => {
+    const { t } = useTranslation();
     const [activeCategory, setActiveCategory] =
-        useState<MentorFilter>("Hamısı");
+        useState<MentorFilter>("all");
 
     const sliderRef = useRef<HTMLDivElement | null>(null);
 
     const filteredMentor = useMemo(() => {
-        if (activeCategory === "Hamısı") {
+        if (activeCategory === "all") {
             return mentors;
         }
 
@@ -50,7 +52,7 @@ const MentorSection = () => {
                                             : "bg-[#FAFAFA] text-[#747877] hover:bg-white"
                                         }`}
                                 >
-                                    {category}
+                                    {t(`categories.${category}`)}
                                 </button>
                             );
                         })}
@@ -62,7 +64,7 @@ const MentorSection = () => {
                             type="button"
                             onClick={() => handleScroll("prev")}
                             className="flex size-12 items-center justify-center rounded-full bg-[#F4F5F7] transition hover:bg-white"
-                            aria-label="Previous courses"
+                            aria-label={t("common.previous")}
                         >
                             <ArrowLeft
                                 size={21}
@@ -75,7 +77,7 @@ const MentorSection = () => {
                             type="button"
                             onClick={() => handleScroll("next")}
                             className="flex size-12 items-center justify-center rounded-full bg-[#F4F5F7] transition hover:bg-white"
-                            aria-label="Next courses"
+                            aria-label={t("common.next")}
                         >
                             <ArrowRight
                                 size={21}
@@ -101,7 +103,7 @@ const MentorSection = () => {
                     ) : (
                         <div className="flex min-h-60 w-full items-center justify-center">
                             <p className="text-lg font-medium text-[#747877]">
-                                Məlumat tapılmadı
+                                {t("common.noData")}
                             </p>
                         </div>
                     )}

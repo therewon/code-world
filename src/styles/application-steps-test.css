@@ -1,0 +1,115 @@
+.application-steps-test {
+  position: relative;
+  isolation: isolate;
+  width: min(100%, 420px);
+  margin: 2rem auto 0;
+}
+
+.application-steps-test picture,
+.application-steps-test__skeleton {
+  display: block;
+  width: 100%;
+}
+
+.application-steps-test__list {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.application-steps-test__item {
+  position: absolute;
+  left: 0;
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  padding-inline: clamp(1.35rem, 7vw, 1.875rem);
+}
+
+.application-steps-test__item h3 {
+  margin: 0 0 clamp(0.5rem, 2.6vw, 0.75rem);
+  color: #fff;
+  font-size: clamp(1.125rem, 5.8vw, 1.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.application-steps-test__item p {
+  max-width: 20rem;
+  margin: 0;
+  color: #999;
+  font-size: clamp(0.8125rem, 4.35vw, 0.9375rem);
+  line-height: 1.4;
+}
+
+.application-steps-test__item--1 {
+  top: 0;
+  height: 30.35%;
+}
+
+.application-steps-test__item--2 {
+  top: 32.26%;
+  height: 16.73%;
+}
+
+.application-steps-test__item--3 {
+  top: 51.01%;
+  height: 16.73%;
+}
+
+.application-steps-test__item--4 {
+  top: 69.76%;
+  height: 30.24%;
+}
+
+@media (min-width: 1024px) {
+  .application-steps-test {
+    width: 100%;
+    max-width: none;
+  }
+
+  .application-steps-test__item {
+    padding-inline: clamp(1.5rem, 3.125vw, 2.5rem);
+  }
+
+  .application-steps-test__item h3 {
+    margin-bottom: clamp(0.75rem, 1.25vw, 1rem);
+    font-size: clamp(1.1875rem, 1.875vw, 1.5rem);
+  }
+
+  .application-steps-test__item p {
+    font-size: clamp(0.875rem, 1.40625vw, 1.125rem);
+  }
+
+  .application-steps-test__item--1 {
+    top: 0;
+    left: 0;
+    width: 32.08%;
+    height: 100%;
+  }
+
+  .application-steps-test__item--2 {
+    top: 0;
+    left: 34.01%;
+    width: 32.16%;
+    height: 46.4%;
+  }
+
+  .application-steps-test__item--3 {
+    top: 53.33%;
+    left: 34.01%;
+    width: 32.16%;
+    height: 46.67%;
+  }
+
+  .application-steps-test__item--4 {
+    top: 0;
+    left: 67.99%;
+    width: 32.01%;
+    height: 100%;
+  }
+}

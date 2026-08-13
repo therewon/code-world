@@ -31,6 +31,7 @@ export type CourseColor =
   | "cyan";
 
 export interface Course {
+  slug: string;
   title: string;
   category: CourseCategory;
   duration: string;
@@ -41,7 +42,7 @@ export interface Course {
 
 export interface Mentor {
   id: number;
-  name: String;
+  name: string;
   image: string;
   category: string;
   position: string;
@@ -222,11 +223,11 @@ export const graduates: Graduate[] = [
 ];
 
 
-export type CategoryFilter = "Hamısı" | CourseCategory;
-export type MentorFilter = "Hamısı" | MentorCategory;
+export type CategoryFilter = "all" | CourseCategory;
+export type MentorFilter = "all" | MentorCategory;
 
 export const categories: CategoryFilter[] = [
-  "Hamısı",
+  "all",
   "Development",
   "Design",
   "Data & QA",
@@ -265,6 +266,7 @@ export const mentors: Mentor[] = [
 
 export const courses: Course[] = [
   {
+    slug: "frontend-development",
     title: "Frontend Development",
     category: "Development",
     duration: "6 ay",
@@ -273,6 +275,7 @@ export const courses: Course[] = [
     color: "blue",
   },
   {
+    slug: "qrafik-dizayn",
     title: "Qrafik dizayn",
     category: "Design",
     duration: "6 ay",
@@ -281,6 +284,7 @@ export const courses: Course[] = [
     color: "orange",
   },
   {
+    slug: "ui-ux-dizayn",
     title: "UI/UX dizayn",
     category: "Design",
     duration: "6 ay",
@@ -289,6 +293,7 @@ export const courses: Course[] = [
     color: "purple",
   },
   {
+    slug: "data-analitika-ve-qa",
     title: "Data Analitika və QA",
     category: "Data & QA",
     duration: "5 ay",
@@ -297,6 +302,7 @@ export const courses: Course[] = [
     color: "green",
   },
   {
+    slug: "net-development",
     title: ".NET Development",
     category: "Development",
     duration: "7 ay",
@@ -305,6 +311,7 @@ export const courses: Course[] = [
     color: "navy",
   },
   {
+    slug: "sistem-ve-it-destek",
     title: "Sistem və IT dəstək",
     category: "System & Support",
     duration: "4 ay",

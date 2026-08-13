@@ -1,11 +1,14 @@
 import type { Mentor } from "../../data/siteData";
 import { FaLinkedinIn } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 interface MentorCardProps {
     mentor: Mentor;
 }
 
 export const MentorCard = ({ mentor }: MentorCardProps) => {
+    const { t } = useTranslation();
+
     return (
         <article className="min-w-full overflow-hidden rounded-2xl  md:min-w-[411px]">
             <div className="h-90 overflow-hidden rounded-2xl relative">
@@ -29,7 +32,7 @@ export const MentorCard = ({ mentor }: MentorCardProps) => {
                     </h3>
 
                     <p className="mt-1 text-sm text-[#64748B]">
-                        {mentor.position}
+                        {t(`people.mentorPositions.${mentor.id}`)}
                     </p>
                 </div>
 

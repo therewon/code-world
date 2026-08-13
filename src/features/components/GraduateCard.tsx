@@ -1,11 +1,14 @@
 import { ArrowUpRight } from "lucide-react";
 import type { Graduate } from "../../data/siteData";
+import { useTranslation } from "react-i18next";
 
 interface GraduateCardProps {
     graduate: Graduate;
 }
 
 export const GraduateCard = ({ graduate }: GraduateCardProps) => {
+    const { t } = useTranslation();
+
     return (
         <article className="min-w-full overflow-hidden rounded-2xl bg-[#F2F3F5] md:min-w-[411px]">
 
@@ -22,7 +25,7 @@ export const GraduateCard = ({ graduate }: GraduateCardProps) => {
                 </h3>
 
                 <p className="mt-1 text-sm text-[#64748B]">
-                    {graduate.position} | <span className="text-[#3E6EEB]"> {graduate.company}</span>
+                    {t(`people.graduatePositions.${graduate.id}`)} | <span className="text-[#3E6EEB]"> {graduate.company}</span>
                 </p>
 
                 <div className="flex gap-4 items-center">

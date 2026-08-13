@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import type { Course } from "../data/siteData";
 
 const iconColorClasses: Record<string, string> = {
@@ -11,6 +12,8 @@ const iconColorClasses: Record<string, string> = {
 };
 
 export function CourseCard({ course }: { course: Course }) {
+  const { t } = useTranslation();
+
   return (
     <article className="group overflow-hidden rounded-[20px] border border-[#e7e9ed] bg-white transition duration-200 hover:-translate-y-[5px] hover:shadow-[0_22px_48px_rgba(24,34,49,.1)]">
       <div className="relative grid h-[245px] place-items-center overflow-hidden bg-[#edf0f4] max-[680px]:h-[220px]">
@@ -22,13 +25,13 @@ export function CourseCard({ course }: { course: Course }) {
       </div>
       <div className="px-5 pb-[22px] pt-[18px]">
         <div className="flex flex-wrap gap-1.5">
-          <span className="rounded-full bg-[#e8f8ee] px-[9px] py-[5px] text-[10px] font-extrabold text-[#167842]">Əyani</span>
-          <span className="rounded-full bg-[#e8f2ff] px-[9px] py-[5px] text-[10px] font-extrabold text-[#0059c9]">Onlayn</span>
+          <span className="rounded-full bg-[#e8f8ee] px-[9px] py-[5px] text-[10px] font-extrabold text-[#167842]">{t("common.inPerson")}</span>
+          <span className="rounded-full bg-[#e8f2ff] px-[9px] py-[5px] text-[10px] font-extrabold text-[#0059c9]">{t("common.online")}</span>
         </div>
-        <h3 className="mb-[5px] mt-3 text-[19px] font-bold">{course.title}</h3>
-        <p className="mb-4 text-[13px] text-[#6e7580]">{course.duration} · {course.schedule}</p>
-        <Link to="/qeydiyyat" className="inline-flex items-center gap-[7px] text-xs font-black uppercase text-[#111820]">
-          Ətraflı
+        <h3 className="mb-[5px] mt-3 text-[19px] font-bold">{t(`courseCatalog.${course.slug}.title`)}</h3>
+        <p className="mb-4 text-[13px] text-[#6e7580]">{t(`courseCatalog.${course.slug}.duration`)} · {t(`courseCatalog.${course.slug}.schedule`)}</p>
+        <Link to={`/kurslar/${course.slug}`} className="inline-flex items-center gap-[7px] text-xs font-black uppercase text-[#111820]">
+          {t("common.details")}
           <span aria-hidden="true" className="grid size-[22px] place-items-center rounded-full bg-black text-white">↗</span>
         </Link>
       </div>

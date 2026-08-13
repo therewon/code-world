@@ -1,11 +1,13 @@
 import { useRef } from "react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import {
   graduates
 } from "../../data/siteData";
 import { GraduateCard } from "../components/GraduateCard";
 
 const GraduateSection = () => {
+  const { t } = useTranslation();
 
   const sliderRef = useRef<HTMLDivElement | null>(null);
 
@@ -28,7 +30,7 @@ const GraduateSection = () => {
               type="button"
               onClick={() => handleScroll("prev")}
               className="flex size-12 items-center justify-center rounded-full bg-[#F4F5F7] transition hover:bg-white"
-              aria-label="Previous courses"
+              aria-label={t("common.previous")}
             >
               <ArrowLeft
                 size={21}
@@ -41,7 +43,7 @@ const GraduateSection = () => {
               type="button"
               onClick={() => handleScroll("next")}
               className="flex size-12 items-center justify-center rounded-full bg-[#F4F5F7] transition hover:bg-white"
-              aria-label="Next courses"
+              aria-label={t("common.next")}
             >
               <ArrowRight
                 size={21}
@@ -67,7 +69,7 @@ const GraduateSection = () => {
           ) : (
             <div className="flex min-h-60 w-full items-center justify-center">
               <p className="text-lg font-medium text-[#747877]">
-                Məlumat tapılmadı
+                {t("common.noData")}
               </p>
             </div>
           )}

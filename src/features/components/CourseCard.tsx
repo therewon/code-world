@@ -1,4 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import type { Course } from "../../data/siteData";
 
 interface CourseCardProps {
@@ -6,6 +8,8 @@ interface CourseCardProps {
 }
 
 export const CourseCard = ({ course }: CourseCardProps) => {
+  const { t } = useTranslation();
+
   return (
     <article className="min-w-full overflow-hidden rounded-2xl bg-[#F4F5F7] md:min-w-[411px]">
       <div className="flex h-60 items-center justify-center bg-[#EEF0F4]">
@@ -16,23 +20,23 @@ export const CourseCard = ({ course }: CourseCardProps) => {
 
       <div className="p-4">
         <h3 className="text-[18px] font-semibold text-black">
-          {course.title}
+          {t(`courseCatalog.${course.slug}.title`)}
         </h3>
 
         <p className="mt-1 text-sm text-[#64748B]">
-          {course.duration} · {course.schedule}
+          {t(`courseCatalog.${course.slug}.duration`)} · {t(`courseCatalog.${course.slug}.schedule`)}
         </p>
 
-        <button
-          type="button"
+        <Link
+          to={`/kurslar/${course.slug}`}
           className="mt-5 flex items-center gap-2 text-sm font-semibold uppercase text-black"
         >
           <span className="flex size-5 items-center justify-center rounded-full bg-black text-white">
             <ArrowUpRight size={13} />
           </span>
 
-          Ətraflı
-        </button>
+          {t("common.details")}
+        </Link>
       </div>
     </article>
   );
